@@ -22,9 +22,7 @@ public:
         for(i = 0, j = 0; i < tmp.size(); ++i)
         {
         	if(tmp[i] == adder1 || tmp[i] == adder2)
-        	{
         		res[j++] = i+1;
-        	}
         	if(j == 2)     
         		break;
         }
