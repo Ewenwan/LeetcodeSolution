@@ -19,7 +19,7 @@ isPolindrome(head, tail) = isPolindrome(head->next, tail->pre)
 
 $$T(n) = T(n-2) + O(n)$$
 
-推知： $$T(n) = O(n)$$
+推知： $$T(n) = O(n^2)$$
 
 试着写了代码，TLE
 
