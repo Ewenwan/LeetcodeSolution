@@ -1,6 +1,6 @@
 ﻿# Perfect Squares
 
-标签（空格分隔）：DP
+标签：DP
 
 ---
 ## 题目描述
