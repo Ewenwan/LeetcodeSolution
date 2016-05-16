@@ -30,5 +30,32 @@ public:
 };
 ```
 
+## 思路解析2
+将整个序列分成三个部分，分别是已经处理过的非零元素，零元素，待处理元素。使用两个指针，分别指向第一个零元素和第一个待处理元素。
+这样，我们交换两者的内容，相当于将零元素们向右平移了一个单位，仍然保持上述性质。当快指针达到数组末尾时，所有元素已经处理完成。
 
-
+## 代码2
+```
+class Solution {
+public:
+    void moveZeroes(vector<int>& nums) {
+        int i = 0, j = 0;
+        int len = nums.size();
+        while(i < len && j < len) {
+            while(i < len) {
+                if(nums[i] == 0) break;
+                ++i;
+            }
+            j = i+1;
+            while(j < len) {
+                if(nums[j] != 0) break;
+                ++j;
+            }
+            if(j < len) {
+                swap(nums[i], nums[j]);
+            }
+            i = i + 1;
+        }
+    }
+};
+```
