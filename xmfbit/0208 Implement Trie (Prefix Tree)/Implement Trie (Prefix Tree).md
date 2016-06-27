@@ -10,7 +10,7 @@ Implement a trie with `insert`, `search`, and `startsWith` methods.
 ## 思路分析
 这道题目要求实现 [Trie](https://en.wiki2.org/wiki/Trie) 这种数据结构。如图所示，是一种应用于快速检索英文单词的Trie树的实现。
 
-![应用于英文单词的Trie树结构][trie.png]
+![应用于英文单词的Trie树结构](./trie.png)
 
 在 [这里](https://www.topcoder.com/community/data-science/data-science-tutorials/using-tries/) 也有一篇不错的关于Trie树的入门介绍。
 
