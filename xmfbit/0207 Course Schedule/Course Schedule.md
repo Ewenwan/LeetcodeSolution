@@ -38,7 +38,7 @@ DFS的伪代码如下：
 for u in G:
     if state(u) == WHITE:
         dfs(u, G, state)
-        
+
 dfs(u, G, state):
     state[u] = GRAY
     for v in ADJ(u):  // 对于所有u的邻接点
@@ -80,6 +80,34 @@ public:
 };
 ```
 
+## 更新
+上面的解法是当时看完CLRS的拓扑排序之后照搬着写的。最近看了《算法》一书的图相关算法，于是找出这道题又重新做了一遍。这次的解法少了一些无谓的条件判断，结果运行时间从200+ms一下做降到了20+ms。真是奇怪。。。
 
-
-
+```
+class Solution {
+    enum {WHITE = 0, GRAY, BLACK};
+    bool dfs(const vector<list<int>>& adjs, int v, vector<unsigned char>& color) {
+        // dfs start from v
+        color[v] = GRAY;
+        for(const auto u : adjs[v]) {
+            if(color[u] == GRAY)    return false;
+            if(!dfs(adjs, u, color)) return false;
+        }
+        color[v] = BLACK;
+        return true;
+    }
+public:
+    bool canFinish(int numCourses, vector<pair<int, int>>& prerequisites) {
+        vector<unsigned char> color(numCourses, WHITE);
+        vector<list<int>> adjs(numCourses);
+        for(const auto& node_pair : prerequisites) {
+            adjs[node_pair.first].push_back(node_pair.second);
+        }
+        for(int i = 0; i < numCourses; ++i) {
+            if(color[i] != WHITE)   continue;
+            if(!dfs(adjs, i, color))    return false;
+        }
+        return true;
+    }
+};
+```
