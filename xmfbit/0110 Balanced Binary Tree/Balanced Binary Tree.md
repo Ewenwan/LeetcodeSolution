@@ -3,10 +3,11 @@
 标签： Tree
 
 ---
-##题目描述
+
+## 题目描述
 Given a binary tree, determine if it is height-balanced.
 
-For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1. 
+For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 
 ## 思路分析
 如果用`h(node)`表示求取`node`在树中的高度，那么判定树是否平衡相当于下面的判定条件：
@@ -45,7 +46,3 @@ public:
     }
 };
 ```
-
-
-
-
